@@ -1,10 +1,10 @@
 module Ui.Button exposing
-    ( Model, Msg, update, view, subscriptions, init )
+    ( Model, Msg(..), update, view, subscriptions, init )
 
 import Html.App as Html
 import Html exposing (button, text, Html, node)
 import Html.Attributes exposing (style)
-import Html.Events exposing (onMouseEnter, onMouseLeave)
+import Html.Events exposing (onMouseEnter, onMouseLeave, onClick)
 import Animation exposing (px)
 import Color exposing (black, white)
 
@@ -28,6 +28,7 @@ init =
 type Msg
     = Hover
     | Unhover
+    | Click
     | Animate Animation.Msg
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -55,6 +56,9 @@ update action model =
             , Cmd.none
             )
 
+        Click ->
+            ( model, Cmd.none )
+
         Animate animMsg ->
             ( { model
                 | style = Animation.update animMsg model.style
@@ -80,21 +84,21 @@ styles =
     }
 
 -- VIEW
-view : (Msg -> msg) -> Model -> Html msg
-view address model =
+view : Model -> String -> Html Msg
+view model buttonText =
     button
         (Animation.render model.style
             ++ [ style
                     [ ( "border", "2px solid black" )
                     , ( "padding", "10px 8px" )
                     , ( "cursor", "pointer" )
-                    , ( "margin", "50px" )
                     ]
                ]
-            ++ [ onMouseEnter (address Hover) ]
-            ++ [ onMouseLeave (address Unhover) ]
+            ++ [ onMouseEnter Hover ]
+            ++ [ onMouseLeave Unhover ]
+            ++ [ onClick Click ]
         )
-        [ text "I'am a button" ]
+        [ text buttonText ]
 
 -- SUBSCRIPTIONS
 subscriptions : Model -> Sub Msg
