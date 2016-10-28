@@ -41,4 +41,4 @@ view model =
 -- SUBSCRIPTIONS
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    Sub.map Backlog (Column.subscriptions model.backlog)
+    Sub.none

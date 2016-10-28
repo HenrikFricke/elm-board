@@ -1,7 +1,7 @@
 port module Stylesheets exposing (..)
 
 import Css.File exposing (..)
-import Ui.Button2
+import Ui.Button
 import Html exposing (div)
 import Html.App as Html
 
@@ -9,7 +9,7 @@ port files : CssFileStructure -> Cmd msg
 
 cssFiles : CssFileStructure
 cssFiles =
-    toFileStructure [ ( "styles.css", compile [ Ui.Button2.css ] ) ]
+    toFileStructure [ ( "styles.css", compile [ Ui.Button.css ] ) ]
 
 main : Program Never
 main =

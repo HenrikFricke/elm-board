@@ -1,105 +1,26 @@
-module Ui.Button exposing
-    ( Model, Msg(..), update, view, subscriptions, init )
+module Ui.Button exposing (..)
 
-import Html exposing (button, text, Html, node)
-import Html.Attributes exposing (style)
-import Html.Events exposing (onMouseEnter, onMouseLeave, onClick)
-import Animation exposing (px)
-import Color exposing (black, white)
+import Html exposing (..)
+import Html.CssHelpers
+import Css exposing (..)
+import Css.Namespace exposing (namespace)
 
--- MODEL
-type alias Model =
-    { style : Animation.State
-    }
+type CssClasses
+    = Primary
 
-init : Model
-init =
-    { style =
-        Animation.styleWith
-            (Animation.spring
-                { stiffness = 100
-                , damping = 15 }
-            )
-            styles.unhover
-    }
-
--- UPDATE
-type Msg
-    = Hover
-    | Unhover
-    | Click
-    | Animate Animation.Msg
-
-update : Msg -> Model -> ( Model, Cmd Msg )
-update action model =
-    case action of
-        Hover ->
-            ( { model
-                | style =
-                    Animation.interrupt
-                        [ Animation.to styles.hover
-                        ]
-                        model.style
-              }
-            , Cmd.none
-            )
-
-        Unhover ->
-            ( { model
-                | style =
-                    Animation.interrupt
-                        [ Animation.to styles.unhover
-                        ]
-                        model.style
-              }
-            , Cmd.none
-            )
-
-        Click ->
-            ( model, Cmd.none )
-
-        Animate animMsg ->
-            ( { model
-                | style = Animation.update animMsg model.style
-              }
-            , Cmd.none
-            )
-
-type alias Styles =
-    { hover : List Animation.Property
-    , unhover : List Animation.Property
-    }
-
-styles : Styles
-styles =
-    { hover =
-        [ Animation.backgroundColor black
-        , Animation.color white
+css : Stylesheet
+css =
+    (stylesheet << namespace "UiButton")
+    [ (.) Primary
+        [ border3 (px 2) solid (hex "000000")
+        , backgroundColor (hex "FFFFFF")
+        , padding2 (px 10) (px 8)
         ]
-    , unhover =
-        [ Animation.backgroundColor white
-        , Animation.color black
-        ]
-    }
+    ]
 
--- VIEW
-view : Model -> String -> Html Msg
-view model buttonText =
-    button
-        (Animation.render model.style
-            ++ [ style
-                    [ ( "border", "2px solid black" )
-                    , ( "padding", "10px 8px" )
-                    , ( "cursor", "pointer" )
-                    ]
-               ]
-            ++ [ onMouseEnter Hover ]
-            ++ [ onMouseLeave Unhover ]
-            ++ [ onClick Click ]
-        )
-        [ text buttonText ]
+{ class } =
+    Html.CssHelpers.withNamespace "UiButton"
 
--- SUBSCRIPTIONS
-subscriptions : Model -> Sub Msg
-subscriptions model =
-    Animation.subscription Animate [ model.style ]
+primary : List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
+primary attributes nodes =
+  button (attributes ++ [class [ Primary ]])  nodes
