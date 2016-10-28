@@ -1,6 +1,8 @@
 const GhPagesWebpackPlugin = require('gh-pages-webpack-plugin');
 const merge = require('webpack-merge');
 const autoprefixer = require('autoprefixer');
+const atImport = require('postcss-import');
+const nested = require('postcss-nested')
 
 const commonConfig = {
   entry: './src/index.js',
@@ -24,17 +26,22 @@ const commonConfig = {
       },
       {
         test: /\.elm$/,
-        exclude: [/elm-stuff/, /node_modules/, /Stylesheets\.elm/],
+        exclude: [/elm-stuff/, /node_modules/],
         loader: 'elm-webpack'
       },
       {
-        test: /Stylesheets\.elm$/,
-        loader: "style!css!postcss!elm-css-webpack"
+        test: /\.css$/,
+        exclude: [/elm-stuff/, /node_modules/],
+        loader: 'style!css!postcss'
       }
     ]
   },
 
-  postcss: [ autoprefixer({ browsers: ['last 3 versions'] }) ]
+  postcss: [
+    atImport(),
+    autoprefixer({ browsers: ['last 3 versions'] }),
+    nested()
+  ]
 };
 
 // DEVELOPMENT
