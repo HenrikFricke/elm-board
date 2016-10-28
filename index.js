@@ -94,7 +94,7 @@
 
 
 	// module
-	exports.push([module.id, "/* Import UI */\n.UiButtonPrimary {\n  border: 2px solid black;\n  background-color: white;\n  padding: 10px 8px;\n  cursor: pointer;\n  transition: all 200ms;\n}\n.UiButtonPrimary:hover {\n  background-color: black;\n  color: white;\n}\n", ""]);
+	exports.push([module.id, "/* Import UI */\n.UiButtonPrimary {\n  border: 2px solid black;\n  background-color: white;\n  padding: 10px 8px;\n  cursor: pointer;\n  transition: all 200ms;\n}\n.UiButtonPrimary:hover {\n  background-color: black;\n  color: white;\n}\n.UiButtonPrimary:focus {\n  outline: 0;\n}\n", ""]);
 
 	// exports
 
