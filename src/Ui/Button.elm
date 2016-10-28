@@ -1,7 +1,6 @@
 module Ui.Button exposing
     ( Model, Msg(..), update, view, subscriptions, init )
 
-import Html.App as Html
 import Html exposing (button, text, Html, node)
 import Html.Attributes exposing (style)
 import Html.Events exposing (onMouseEnter, onMouseLeave, onClick)

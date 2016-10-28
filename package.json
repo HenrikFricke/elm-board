@@ -1,0 +1,26 @@
+{
+  "name": "elm-board",
+  "version": "1.0.0",
+  "description": "kanban board written in elm",
+  "main": "src/index.js",
+  "author": "Henrik Fricke <henrikfricke@web.de>",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=development $(yarn bin)/webpack-dev-server",
+    "deploy": "yarn run clean && NODE_ENV=production $(yarn bin)/webpack",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "autoprefixer": "^6.5.1",
+    "css-loader": "^0.25.0",
+    "elm-css-webpack-loader": "^2.0.2",
+    "elm-webpack-loader": "^3.0.6",
+    "file-loader": "^0.9.0",
+    "gh-pages-webpack-plugin": "^1.0.1",
+    "postcss-loader": "^1.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2",
+    "webpack-merge": "^0.15.0"
+  }
+}

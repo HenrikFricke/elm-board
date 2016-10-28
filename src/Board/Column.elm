@@ -5,6 +5,7 @@ import Html.Events exposing (onClick)
 import Html.App exposing (map)
 
 import Ui.Button as Button
+import Ui.Button2 as Button2
 
 -- MODEL
 type alias Model =
@@ -49,6 +50,7 @@ view model =
     [ p [] [text model.label]
     , ul [] (List.map viewTicket model.tickets)
     , br [] []
+    , Button2.primary [onClick (AddTicket "Test")] [text "I'am a button"]
     , map Button (Button.view model.button "Add new ticket")
     ]
 
