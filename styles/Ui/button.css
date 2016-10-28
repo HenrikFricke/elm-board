@@ -9,4 +9,8 @@
     background-color: black;
     color: white;
   }
+
+  &:focus {
+    outline: 0;
+  }
 }
