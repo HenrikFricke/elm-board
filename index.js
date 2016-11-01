@@ -94,7 +94,7 @@
 
 
 	// module
-	exports.push([module.id, ":root {\n  /* COLORS */\n\n  /* DISTANCES */\n\n  /* FONTS */\n}\nbody {\n  margin: 0;\n  font-family: 'Lato', sans-serif;\n}\n/* Import UI */\n.UiButtonPrimary {\n  border: 2px solid black;\n  background-color: white;\n  padding: 10px 8px;\n  cursor: pointer;\n  -webkit-transition: all 200ms;\n  transition: all 200ms\n}\n.UiButtonPrimary:hover {\n  background-color: black;\n  color: white;\n}\n.UiButtonPrimary:focus {\n  outline: 0;\n}\n.UiNavbar {\n  display: block;\n  padding: 0 30px;\n  background-color: rgb(230, 230, 230);\n  box-shadow: 0 -2px 8px black;\n}\n.UiNavbarTitle {\n  display: inline-block;\n  font-size: 20px;\n}\n", ""]);
+	exports.push([module.id, ":root {\n  /* COLORS */\n\n  /* DISTANCES */\n\n  /* FONTS */\n}\nbody {\n  margin: 0;\n  font-family: 'Lato', sans-serif;\n}\n/* Import UI */\n.UiButtonPrimary {\n  border: 2px solid black;\n  background-color: white;\n  padding: 10px 8px;\n  cursor: pointer;\n  -webkit-transition: all 200ms;\n  transition: all 200ms\n}\n.UiButtonPrimary:hover {\n  background-color: black;\n  color: white;\n}\n.UiButtonPrimary:focus {\n  outline: 0;\n}\n.UiNavbar {\n  display: block;\n  padding: 0 30px;\n  background-color: rgb(230, 230, 230);\n  box-shadow: 0 -2px 8px black;\n}\n.UiNavbarTitle {\n  display: inline-block;\n  font-size: 20px;\n}\n/* Import Board specific styling */\n.BoardBoard {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  padding: 10px 30px 0;\n  height: calc(100vh - 80px);\n}\n.BoardColumn {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  border-right: 2px solid rgb(210, 210, 210);\n  padding: 0 20px\n}\n.BoardColumn:first-child {\n  border-left: 2px solid rgb(210, 210, 210);\n}\n.BoardColumnAddButton {\n  float: right;\n}\n", ""]);
 
 	// exports
 
@@ -7819,145 +7819,6 @@
 	var _elm_lang$html$Html$menuitem = _elm_lang$html$Html$node('menuitem');
 	var _elm_lang$html$Html$menu = _elm_lang$html$Html$node('menu');
 
-	var _elm_lang$html$Html_App$programWithFlags = _elm_lang$virtual_dom$VirtualDom$programWithFlags;
-	var _elm_lang$html$Html_App$program = function (app) {
-		return _elm_lang$html$Html_App$programWithFlags(
-			_elm_lang$core$Native_Utils.update(
-				app,
-				{
-					init: function (_p0) {
-						return app.init;
-					}
-				}));
-	};
-	var _elm_lang$html$Html_App$beginnerProgram = function (_p1) {
-		var _p2 = _p1;
-		return _elm_lang$html$Html_App$programWithFlags(
-			{
-				init: function (_p3) {
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						_p2.model,
-						_elm_lang$core$Native_List.fromArray(
-							[]));
-				},
-				update: F2(
-					function (msg, model) {
-						return A2(
-							_elm_lang$core$Platform_Cmd_ops['!'],
-							A2(_p2.update, msg, model),
-							_elm_lang$core$Native_List.fromArray(
-								[]));
-					}),
-				view: _p2.view,
-				subscriptions: function (_p4) {
-					return _elm_lang$core$Platform_Sub$none;
-				}
-			});
-	};
-	var _elm_lang$html$Html_App$map = _elm_lang$virtual_dom$VirtualDom$map;
-
-	var _elm_lang$html$Html_Events$keyCode = A2(_elm_lang$core$Json_Decode_ops[':='], 'keyCode', _elm_lang$core$Json_Decode$int);
-	var _elm_lang$html$Html_Events$targetChecked = A2(
-		_elm_lang$core$Json_Decode$at,
-		_elm_lang$core$Native_List.fromArray(
-			['target', 'checked']),
-		_elm_lang$core$Json_Decode$bool);
-	var _elm_lang$html$Html_Events$targetValue = A2(
-		_elm_lang$core$Json_Decode$at,
-		_elm_lang$core$Native_List.fromArray(
-			['target', 'value']),
-		_elm_lang$core$Json_Decode$string);
-	var _elm_lang$html$Html_Events$defaultOptions = _elm_lang$virtual_dom$VirtualDom$defaultOptions;
-	var _elm_lang$html$Html_Events$onWithOptions = _elm_lang$virtual_dom$VirtualDom$onWithOptions;
-	var _elm_lang$html$Html_Events$on = _elm_lang$virtual_dom$VirtualDom$on;
-	var _elm_lang$html$Html_Events$onFocus = function (msg) {
-		return A2(
-			_elm_lang$html$Html_Events$on,
-			'focus',
-			_elm_lang$core$Json_Decode$succeed(msg));
-	};
-	var _elm_lang$html$Html_Events$onBlur = function (msg) {
-		return A2(
-			_elm_lang$html$Html_Events$on,
-			'blur',
-			_elm_lang$core$Json_Decode$succeed(msg));
-	};
-	var _elm_lang$html$Html_Events$onSubmitOptions = _elm_lang$core$Native_Utils.update(
-		_elm_lang$html$Html_Events$defaultOptions,
-		{preventDefault: true});
-	var _elm_lang$html$Html_Events$onSubmit = function (msg) {
-		return A3(
-			_elm_lang$html$Html_Events$onWithOptions,
-			'submit',
-			_elm_lang$html$Html_Events$onSubmitOptions,
-			_elm_lang$core$Json_Decode$succeed(msg));
-	};
-	var _elm_lang$html$Html_Events$onCheck = function (tagger) {
-		return A2(
-			_elm_lang$html$Html_Events$on,
-			'change',
-			A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetChecked));
-	};
-	var _elm_lang$html$Html_Events$onInput = function (tagger) {
-		return A2(
-			_elm_lang$html$Html_Events$on,
-			'input',
-			A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetValue));
-	};
-	var _elm_lang$html$Html_Events$onMouseOut = function (msg) {
-		return A2(
-			_elm_lang$html$Html_Events$on,
-			'mouseout',
-			_elm_lang$core$Json_Decode$succeed(msg));
-	};
-	var _elm_lang$html$Html_Events$onMouseOver = function (msg) {
-		return A2(
-			_elm_lang$html$Html_Events$on,
-			'mouseover',
-			_elm_lang$core$Json_Decode$succeed(msg));
-	};
-	var _elm_lang$html$Html_Events$onMouseLeave = function (msg) {
-		return A2(
-			_elm_lang$html$Html_Events$on,
-			'mouseleave',
-			_elm_lang$core$Json_Decode$succeed(msg));
-	};
-	var _elm_lang$html$Html_Events$onMouseEnter = function (msg) {
-		return A2(
-			_elm_lang$html$Html_Events$on,
-			'mouseenter',
-			_elm_lang$core$Json_Decode$succeed(msg));
-	};
-	var _elm_lang$html$Html_Events$onMouseUp = function (msg) {
-		return A2(
-			_elm_lang$html$Html_Events$on,
-			'mouseup',
-			_elm_lang$core$Json_Decode$succeed(msg));
-	};
-	var _elm_lang$html$Html_Events$onMouseDown = function (msg) {
-		return A2(
-			_elm_lang$html$Html_Events$on,
-			'mousedown',
-			_elm_lang$core$Json_Decode$succeed(msg));
-	};
-	var _elm_lang$html$Html_Events$onDoubleClick = function (msg) {
-		return A2(
-			_elm_lang$html$Html_Events$on,
-			'dblclick',
-			_elm_lang$core$Json_Decode$succeed(msg));
-	};
-	var _elm_lang$html$Html_Events$onClick = function (msg) {
-		return A2(
-			_elm_lang$html$Html_Events$on,
-			'click',
-			_elm_lang$core$Json_Decode$succeed(msg));
-	};
-	var _elm_lang$html$Html_Events$Options = F2(
-		function (a, b) {
-			return {stopPropagation: a, preventDefault: b};
-		});
-
 	var _elm_lang$html$Html_Attributes$attribute = _elm_lang$virtual_dom$VirtualDom$attribute;
 	var _elm_lang$html$Html_Attributes$contextmenu = function (value) {
 		return A2(_elm_lang$html$Html_Attributes$attribute, 'contextmenu', value);
@@ -8310,6 +8171,145 @@
 	};
 	var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
 
+	var _elm_lang$html$Html_App$programWithFlags = _elm_lang$virtual_dom$VirtualDom$programWithFlags;
+	var _elm_lang$html$Html_App$program = function (app) {
+		return _elm_lang$html$Html_App$programWithFlags(
+			_elm_lang$core$Native_Utils.update(
+				app,
+				{
+					init: function (_p0) {
+						return app.init;
+					}
+				}));
+	};
+	var _elm_lang$html$Html_App$beginnerProgram = function (_p1) {
+		var _p2 = _p1;
+		return _elm_lang$html$Html_App$programWithFlags(
+			{
+				init: function (_p3) {
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_p2.model,
+						_elm_lang$core$Native_List.fromArray(
+							[]));
+				},
+				update: F2(
+					function (msg, model) {
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							A2(_p2.update, msg, model),
+							_elm_lang$core$Native_List.fromArray(
+								[]));
+					}),
+				view: _p2.view,
+				subscriptions: function (_p4) {
+					return _elm_lang$core$Platform_Sub$none;
+				}
+			});
+	};
+	var _elm_lang$html$Html_App$map = _elm_lang$virtual_dom$VirtualDom$map;
+
+	var _elm_lang$html$Html_Events$keyCode = A2(_elm_lang$core$Json_Decode_ops[':='], 'keyCode', _elm_lang$core$Json_Decode$int);
+	var _elm_lang$html$Html_Events$targetChecked = A2(
+		_elm_lang$core$Json_Decode$at,
+		_elm_lang$core$Native_List.fromArray(
+			['target', 'checked']),
+		_elm_lang$core$Json_Decode$bool);
+	var _elm_lang$html$Html_Events$targetValue = A2(
+		_elm_lang$core$Json_Decode$at,
+		_elm_lang$core$Native_List.fromArray(
+			['target', 'value']),
+		_elm_lang$core$Json_Decode$string);
+	var _elm_lang$html$Html_Events$defaultOptions = _elm_lang$virtual_dom$VirtualDom$defaultOptions;
+	var _elm_lang$html$Html_Events$onWithOptions = _elm_lang$virtual_dom$VirtualDom$onWithOptions;
+	var _elm_lang$html$Html_Events$on = _elm_lang$virtual_dom$VirtualDom$on;
+	var _elm_lang$html$Html_Events$onFocus = function (msg) {
+		return A2(
+			_elm_lang$html$Html_Events$on,
+			'focus',
+			_elm_lang$core$Json_Decode$succeed(msg));
+	};
+	var _elm_lang$html$Html_Events$onBlur = function (msg) {
+		return A2(
+			_elm_lang$html$Html_Events$on,
+			'blur',
+			_elm_lang$core$Json_Decode$succeed(msg));
+	};
+	var _elm_lang$html$Html_Events$onSubmitOptions = _elm_lang$core$Native_Utils.update(
+		_elm_lang$html$Html_Events$defaultOptions,
+		{preventDefault: true});
+	var _elm_lang$html$Html_Events$onSubmit = function (msg) {
+		return A3(
+			_elm_lang$html$Html_Events$onWithOptions,
+			'submit',
+			_elm_lang$html$Html_Events$onSubmitOptions,
+			_elm_lang$core$Json_Decode$succeed(msg));
+	};
+	var _elm_lang$html$Html_Events$onCheck = function (tagger) {
+		return A2(
+			_elm_lang$html$Html_Events$on,
+			'change',
+			A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetChecked));
+	};
+	var _elm_lang$html$Html_Events$onInput = function (tagger) {
+		return A2(
+			_elm_lang$html$Html_Events$on,
+			'input',
+			A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetValue));
+	};
+	var _elm_lang$html$Html_Events$onMouseOut = function (msg) {
+		return A2(
+			_elm_lang$html$Html_Events$on,
+			'mouseout',
+			_elm_lang$core$Json_Decode$succeed(msg));
+	};
+	var _elm_lang$html$Html_Events$onMouseOver = function (msg) {
+		return A2(
+			_elm_lang$html$Html_Events$on,
+			'mouseover',
+			_elm_lang$core$Json_Decode$succeed(msg));
+	};
+	var _elm_lang$html$Html_Events$onMouseLeave = function (msg) {
+		return A2(
+			_elm_lang$html$Html_Events$on,
+			'mouseleave',
+			_elm_lang$core$Json_Decode$succeed(msg));
+	};
+	var _elm_lang$html$Html_Events$onMouseEnter = function (msg) {
+		return A2(
+			_elm_lang$html$Html_Events$on,
+			'mouseenter',
+			_elm_lang$core$Json_Decode$succeed(msg));
+	};
+	var _elm_lang$html$Html_Events$onMouseUp = function (msg) {
+		return A2(
+			_elm_lang$html$Html_Events$on,
+			'mouseup',
+			_elm_lang$core$Json_Decode$succeed(msg));
+	};
+	var _elm_lang$html$Html_Events$onMouseDown = function (msg) {
+		return A2(
+			_elm_lang$html$Html_Events$on,
+			'mousedown',
+			_elm_lang$core$Json_Decode$succeed(msg));
+	};
+	var _elm_lang$html$Html_Events$onDoubleClick = function (msg) {
+		return A2(
+			_elm_lang$html$Html_Events$on,
+			'dblclick',
+			_elm_lang$core$Json_Decode$succeed(msg));
+	};
+	var _elm_lang$html$Html_Events$onClick = function (msg) {
+		return A2(
+			_elm_lang$html$Html_Events$on,
+			'click',
+			_elm_lang$core$Json_Decode$succeed(msg));
+	};
+	var _elm_lang$html$Html_Events$Options = F2(
+		function (a, b) {
+			return {stopPropagation: a, preventDefault: b};
+		});
+
 	var _HenrikFricke$elm_board$Ui_Button$primary = F2(
 		function (attributes, nodes) {
 			return A2(
@@ -8324,32 +8324,54 @@
 				nodes);
 		});
 
-	var _HenrikFricke$elm_board$Board_Column$viewTicket = function (ticket) {
+	var _HenrikFricke$elm_board$Board_Ticket$view = function (model) {
 		return A2(
-			_elm_lang$html$Html$li,
+			_elm_lang$html$Html$div,
 			_elm_lang$core$Native_List.fromArray(
 				[]),
 			_elm_lang$core$Native_List.fromArray(
 				[
-					_elm_lang$html$Html$text(ticket)
+					A2(
+					_elm_lang$html$Html$span,
+					_elm_lang$core$Native_List.fromArray(
+						[]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html$text(model.title)
+						])),
+					A2(
+					_elm_lang$html$Html$span,
+					_elm_lang$core$Native_List.fromArray(
+						[]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html$text(model.description)
+						]))
 				]));
 	};
+	var _HenrikFricke$elm_board$Board_Ticket$init = F2(
+		function (title, description) {
+			return {title: title, description: description};
+		});
+	var _HenrikFricke$elm_board$Board_Ticket$Model = F2(
+		function (a, b) {
+			return {title: a, description: b};
+		});
+
 	var _HenrikFricke$elm_board$Board_Column$update = F2(
 		function (msg, model) {
 			var _p0 = msg;
-			return {
-				ctor: '_Tuple2',
-				_0: _elm_lang$core$Native_Utils.update(
-					model,
-					{
-						tickets: A2(
-							_elm_lang$core$Basics_ops['++'],
-							_elm_lang$core$Native_List.fromArray(
-								[_p0._0]),
-							model.tickets)
-					}),
-				_1: _elm_lang$core$Platform_Cmd$none
-			};
+			return _elm_lang$core$Native_Utils.update(
+				model,
+				{
+					tickets: A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A2(_HenrikFricke$elm_board$Board_Ticket$init, 'Test', 'test')
+							]),
+						model.tickets)
+				});
 		});
 	var _HenrikFricke$elm_board$Board_Column$init = function (label) {
 		return {
@@ -8369,7 +8391,9 @@
 		return A2(
 			_elm_lang$html$Html$div,
 			_elm_lang$core$Native_List.fromArray(
-				[]),
+				[
+					_elm_lang$html$Html_Attributes$class('BoardColumn')
+				]),
 			_elm_lang$core$Native_List.fromArray(
 				[
 					A2(
@@ -8378,30 +8402,33 @@
 						[]),
 					_elm_lang$core$Native_List.fromArray(
 						[
-							_elm_lang$html$Html$text(model.label)
+							_elm_lang$html$Html$text(model.label),
+							A2(
+							_elm_lang$html$Html$span,
+							_elm_lang$core$Native_List.fromArray(
+								[
+									_elm_lang$html$Html_Attributes$class('BoardColumnAddButton')
+								]),
+							_elm_lang$core$Native_List.fromArray(
+								[
+									A2(
+									_HenrikFricke$elm_board$Ui_Button$primary,
+									_elm_lang$core$Native_List.fromArray(
+										[
+											_elm_lang$html$Html_Events$onClick(
+											_HenrikFricke$elm_board$Board_Column$AddTicket('Test'))
+										]),
+									_elm_lang$core$Native_List.fromArray(
+										[
+											_elm_lang$html$Html$text('Add a ticket')
+										]))
+								]))
 						])),
 					A2(
-					_elm_lang$html$Html$ul,
+					_elm_lang$html$Html$div,
 					_elm_lang$core$Native_List.fromArray(
 						[]),
-					A2(_elm_lang$core$List$map, _HenrikFricke$elm_board$Board_Column$viewTicket, model.tickets)),
-					A2(
-					_elm_lang$html$Html$br,
-					_elm_lang$core$Native_List.fromArray(
-						[]),
-					_elm_lang$core$Native_List.fromArray(
-						[])),
-					A2(
-					_HenrikFricke$elm_board$Ui_Button$primary,
-					_elm_lang$core$Native_List.fromArray(
-						[
-							_elm_lang$html$Html_Events$onClick(
-							_HenrikFricke$elm_board$Board_Column$AddTicket('Test'))
-						]),
-					_elm_lang$core$Native_List.fromArray(
-						[
-							_elm_lang$html$Html$text('Add a ticket')
-						]))
+					A2(_elm_lang$core$List$map, _HenrikFricke$elm_board$Board_Ticket$view, model.tickets))
 				]));
 	};
 
@@ -8427,32 +8454,46 @@
 				]));
 	};
 
-	var _HenrikFricke$elm_board$Board_Board$subscriptions = function (model) {
-		return _elm_lang$core$Platform_Sub$none;
-	};
-	var _HenrikFricke$elm_board$Board_Board$init = {
-		backlog: _HenrikFricke$elm_board$Board_Column$init('Backlog')
-	};
-	var _HenrikFricke$elm_board$Board_Board$Model = function (a) {
-		return {backlog: a};
-	};
-	var _HenrikFricke$elm_board$Board_Board$Backlog = function (a) {
-		return {ctor: 'Backlog', _0: a};
-	};
+	var _HenrikFricke$elm_board$Board_Board$updateColumn = F3(
+		function (model, label, columnMsg) {
+			return _elm_lang$core$Native_Utils.eq(model.label, label) ? A2(_HenrikFricke$elm_board$Board_Column$update, columnMsg, model) : model;
+		});
 	var _HenrikFricke$elm_board$Board_Board$update = F2(
 		function (msg, model) {
 			var _p0 = msg;
-			var _p1 = A2(_HenrikFricke$elm_board$Board_Column$update, _p0._0, model.backlog);
-			var backlog = _p1._0;
-			var cmd = _p1._1;
-			return {
-				ctor: '_Tuple2',
-				_0: _elm_lang$core$Native_Utils.update(
-					model,
-					{backlog: backlog}),
-				_1: A2(_elm_lang$core$Platform_Cmd$map, _HenrikFricke$elm_board$Board_Board$Backlog, cmd)
-			};
+			return _elm_lang$core$Native_Utils.update(
+				model,
+				{
+					columns: A2(
+						_elm_lang$core$List$map,
+						function (c) {
+							return A3(_HenrikFricke$elm_board$Board_Board$updateColumn, c, _p0._0, _p0._1);
+						},
+						model.columns)
+				});
 		});
+	var _HenrikFricke$elm_board$Board_Board$init = {
+		columns: _elm_lang$core$Native_List.fromArray(
+			[
+				_HenrikFricke$elm_board$Board_Column$init('Backlog'),
+				_HenrikFricke$elm_board$Board_Column$init('Next'),
+				_HenrikFricke$elm_board$Board_Column$init('In Progress'),
+				_HenrikFricke$elm_board$Board_Column$init('Done')
+			])
+	};
+	var _HenrikFricke$elm_board$Board_Board$Model = function (a) {
+		return {columns: a};
+	};
+	var _HenrikFricke$elm_board$Board_Board$Column = F2(
+		function (a, b) {
+			return {ctor: 'Column', _0: a, _1: b};
+		});
+	var _HenrikFricke$elm_board$Board_Board$viewColumn = function (model) {
+		return A2(
+			_elm_lang$html$Html_App$map,
+			_HenrikFricke$elm_board$Board_Board$Column(model.label),
+			_HenrikFricke$elm_board$Board_Column$view(model));
+	};
 	var _HenrikFricke$elm_board$Board_Board$view = function (model) {
 		return A2(
 			_elm_lang$html$Html$div,
@@ -8462,27 +8503,18 @@
 				[
 					_HenrikFricke$elm_board$Ui_Navbar$view('ElmBoard'),
 					A2(
-					_elm_lang$html$Html$ul,
-					_elm_lang$core$Native_List.fromArray(
-						[]),
+					_elm_lang$html$Html$div,
 					_elm_lang$core$Native_List.fromArray(
 						[
-							A2(
-							_elm_lang$html$Html_App$map,
-							_HenrikFricke$elm_board$Board_Board$Backlog,
-							_HenrikFricke$elm_board$Board_Column$view(model.backlog))
-						]))
+							_elm_lang$html$Html_Attributes$class('BoardBoard')
+						]),
+					A2(_elm_lang$core$List$map, _HenrikFricke$elm_board$Board_Board$viewColumn, model.columns))
 				]));
 	};
 
 	var _HenrikFricke$elm_board$Main$main = {
-		main: _elm_lang$html$Html_App$program(
-			{
-				init: {ctor: '_Tuple2', _0: _HenrikFricke$elm_board$Board_Board$init, _1: _elm_lang$core$Platform_Cmd$none},
-				view: _HenrikFricke$elm_board$Board_Board$view,
-				update: _HenrikFricke$elm_board$Board_Board$update,
-				subscriptions: _HenrikFricke$elm_board$Board_Board$subscriptions
-			})
+		main: _elm_lang$html$Html_App$beginnerProgram(
+			{model: _HenrikFricke$elm_board$Board_Board$init, view: _HenrikFricke$elm_board$Board_Board$view, update: _HenrikFricke$elm_board$Board_Board$update})
 	};
 
 	var Elm = {};
