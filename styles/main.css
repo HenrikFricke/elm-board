@@ -4,3 +4,7 @@
 /* Import UI */
 @import 'Ui/button.css';
 @import 'Ui/navbar.css';
+
+/* Import Board specific styling */
+@import 'Board/board.css';
+@import 'Board/column.css';

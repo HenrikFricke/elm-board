@@ -1,0 +1,13 @@
+.BoardColumn {
+  flex-grow: 1;
+  border-right: 2px solid var(--mediumGray);
+  padding: 0 20px;
+
+  &:first-child {
+    border-left: 2px solid var(--mediumGray);
+  }
+}
+
+.BoardColumnAddButton {
+  float: right;
+}

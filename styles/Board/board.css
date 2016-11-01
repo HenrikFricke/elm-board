@@ -1,0 +1,5 @@
+.BoardBoard {
+  display: flex;
+  padding: 10px var(--gridPadding) 0;
+  height: calc(100vh - 80px);
+}

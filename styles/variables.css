@@ -1,6 +1,7 @@
 :root {
   /* COLORS */
   --lightGray: gray(230);
+  --mediumGray: gray(210);
 
   /* DISTANCES */
   --gridPadding: 30px;

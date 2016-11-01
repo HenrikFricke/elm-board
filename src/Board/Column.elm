@@ -1,7 +1,8 @@
 module Board.Column exposing (init, Msg(..), update, view, Model)
 
-import Html exposing (Html, div, p, text)
+import Html exposing (Html, div, p, text, span)
 import Html.Events exposing (onClick)
+import Html.Attributes exposing (class)
 import Html.App exposing (map)
 
 import Ui.Button as Button
@@ -32,8 +33,15 @@ update msg model =
 -- VIEW
 view : Model -> Html Msg
 view model =
-  div []
-    [ p [] [text model.label]
+  div [class "BoardColumn"]
+    [ p []
+        [ text model.label
+        , span
+            [class "BoardColumnAddButton"]
+            [ Button.primary
+                [ onClick (AddTicket "Test") ]
+                [text "Add a ticket"]
+            ]
+        ]
     , div [] (List.map Ticket.view model.tickets)
-    , Button.primary [onClick (AddTicket "Test")] [text "Add a ticket"]
     ]

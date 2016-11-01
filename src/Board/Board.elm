@@ -1,6 +1,7 @@
 module Board.Board exposing (init, update, view)
 
 import Html exposing (div, text, Html)
+import Html.Attributes exposing (class)
 import Html.App
 
 import Board.Column
@@ -45,7 +46,7 @@ view : Model -> Html Msg
 view model =
   div []
     [ Ui.Navbar.view "ElmBoard"
-    , div [] (List.map viewColumn model.columns)
+    , div [class "BoardBoard"] (List.map viewColumn model.columns)
     ]
 
 viewColumn : Board.Column.Model -> Html Msg
