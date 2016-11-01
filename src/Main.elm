@@ -1,5 +1,5 @@
 import Html.App
-import Board.App as App
+import Board.Board as App
 
 main : Program Never
 main =

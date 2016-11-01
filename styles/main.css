@@ -1,2 +1,6 @@
+@import './variables.css';
+@import './general.css';
+
 /* Import UI */
 @import 'Ui/button.css';
+@import 'Ui/navbar.css';

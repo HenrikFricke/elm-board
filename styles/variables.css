@@ -1,0 +1,10 @@
+:root {
+  /* COLORS */
+  --lightGray: gray(230);
+
+  /* DISTANCES */
+  --gridPadding: 30px;
+
+  /* FONTS */
+  --headlineFontSize: 20px;
+}

@@ -1,0 +1,11 @@
+.UiNavbar {
+  display: block;
+  padding: 0 var(--gridPadding);
+  background-color: var(--lightGray);
+  box-shadow: 0 -2px 8px black;
+}
+
+.UiNavbarTitle {
+  display: inline-block;
+  font-size: var(--headlineFontSize);
+}

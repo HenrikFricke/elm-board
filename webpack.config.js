@@ -1,8 +1,7 @@
 const GhPagesWebpackPlugin = require('gh-pages-webpack-plugin');
 const merge = require('webpack-merge');
-const autoprefixer = require('autoprefixer');
 const smartImport = require('postcss-smart-import');
-const nested = require('postcss-nested')
+const cssNext = require('postcss-cssnext')
 
 const commonConfig = {
   entry: './src/index.js',
@@ -39,8 +38,7 @@ const commonConfig = {
 
   postcss: [
     smartImport(),
-    autoprefixer({ browsers: ['last 3 versions'] }),
-    nested()
+    cssNext()
   ]
 };
 

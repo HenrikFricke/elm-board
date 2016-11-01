@@ -1,9 +1,10 @@
-module Board.App exposing (init, update, view, subscriptions)
+module Board.Board exposing (init, update, view, subscriptions)
 
 import Html exposing (div, h1, ul, text, Html)
 import Html.App
 
 import Board.Column as Column
+import Ui.Navbar
 
 -- MODEL
 type alias Model =
@@ -32,7 +33,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
   div []
-    [ h1 [] [text "ElmBoard"]
+    [ Ui.Navbar.view "ElmBoard"
     , ul []
         [ Html.App.map Backlog (Column.view model.backlog)
         ]
