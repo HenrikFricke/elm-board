@@ -94,7 +94,7 @@
 
 
 	// module
-	exports.push([module.id, "/* Import UI */\n.UiButtonPrimary {\n  border: 2px solid black;\n  background-color: white;\n  padding: 10px 8px;\n  cursor: pointer;\n  transition: all 200ms;\n}\n.UiButtonPrimary:hover {\n  background-color: black;\n  color: white;\n}\n.UiButtonPrimary:focus {\n  outline: 0;\n}\n", ""]);
+	exports.push([module.id, ":root {\n  /* COLORS */\n\n  /* DISTANCES */\n\n  /* FONTS */\n}\nbody {\n  margin: 0;\n  font-family: 'Lato', sans-serif;\n}\n/* Import UI */\n.UiButtonPrimary {\n  border: 2px solid black;\n  background-color: white;\n  padding: 10px 8px;\n  cursor: pointer;\n  -webkit-transition: all 200ms;\n  transition: all 200ms\n}\n.UiButtonPrimary:hover {\n  background-color: black;\n  color: white;\n}\n.UiButtonPrimary:focus {\n  outline: 0;\n}\n.UiNavbar {\n  display: block;\n  padding: 0 30px;\n  background-color: rgb(230, 230, 230);\n  box-shadow: 0 -2px 8px black;\n}\n.UiNavbarTitle {\n  display: inline-block;\n  font-size: 20px;\n}\n", ""]);
 
 	// exports
 
@@ -8405,19 +8405,41 @@
 				]));
 	};
 
-	var _HenrikFricke$elm_board$Board_App$subscriptions = function (model) {
+	var _HenrikFricke$elm_board$Ui_Navbar$view = function (title) {
+		return A2(
+			_elm_lang$html$Html$div,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html_Attributes$class('UiNavbar')
+				]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					A2(
+					_elm_lang$html$Html$h1,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html_Attributes$class('UiNavbarTitle')
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html$text(title)
+						]))
+				]));
+	};
+
+	var _HenrikFricke$elm_board$Board_Board$subscriptions = function (model) {
 		return _elm_lang$core$Platform_Sub$none;
 	};
-	var _HenrikFricke$elm_board$Board_App$init = {
+	var _HenrikFricke$elm_board$Board_Board$init = {
 		backlog: _HenrikFricke$elm_board$Board_Column$init('Backlog')
 	};
-	var _HenrikFricke$elm_board$Board_App$Model = function (a) {
+	var _HenrikFricke$elm_board$Board_Board$Model = function (a) {
 		return {backlog: a};
 	};
-	var _HenrikFricke$elm_board$Board_App$Backlog = function (a) {
+	var _HenrikFricke$elm_board$Board_Board$Backlog = function (a) {
 		return {ctor: 'Backlog', _0: a};
 	};
-	var _HenrikFricke$elm_board$Board_App$update = F2(
+	var _HenrikFricke$elm_board$Board_Board$update = F2(
 		function (msg, model) {
 			var _p0 = msg;
 			var _p1 = A2(_HenrikFricke$elm_board$Board_Column$update, _p0._0, model.backlog);
@@ -8428,24 +8450,17 @@
 				_0: _elm_lang$core$Native_Utils.update(
 					model,
 					{backlog: backlog}),
-				_1: A2(_elm_lang$core$Platform_Cmd$map, _HenrikFricke$elm_board$Board_App$Backlog, cmd)
+				_1: A2(_elm_lang$core$Platform_Cmd$map, _HenrikFricke$elm_board$Board_Board$Backlog, cmd)
 			};
 		});
-	var _HenrikFricke$elm_board$Board_App$view = function (model) {
+	var _HenrikFricke$elm_board$Board_Board$view = function (model) {
 		return A2(
 			_elm_lang$html$Html$div,
 			_elm_lang$core$Native_List.fromArray(
 				[]),
 			_elm_lang$core$Native_List.fromArray(
 				[
-					A2(
-					_elm_lang$html$Html$h1,
-					_elm_lang$core$Native_List.fromArray(
-						[]),
-					_elm_lang$core$Native_List.fromArray(
-						[
-							_elm_lang$html$Html$text('ElmBoard')
-						])),
+					_HenrikFricke$elm_board$Ui_Navbar$view('ElmBoard'),
 					A2(
 					_elm_lang$html$Html$ul,
 					_elm_lang$core$Native_List.fromArray(
@@ -8454,7 +8469,7 @@
 						[
 							A2(
 							_elm_lang$html$Html_App$map,
-							_HenrikFricke$elm_board$Board_App$Backlog,
+							_HenrikFricke$elm_board$Board_Board$Backlog,
 							_HenrikFricke$elm_board$Board_Column$view(model.backlog))
 						]))
 				]));
@@ -8463,10 +8478,10 @@
 	var _HenrikFricke$elm_board$Main$main = {
 		main: _elm_lang$html$Html_App$program(
 			{
-				init: {ctor: '_Tuple2', _0: _HenrikFricke$elm_board$Board_App$init, _1: _elm_lang$core$Platform_Cmd$none},
-				view: _HenrikFricke$elm_board$Board_App$view,
-				update: _HenrikFricke$elm_board$Board_App$update,
-				subscriptions: _HenrikFricke$elm_board$Board_App$subscriptions
+				init: {ctor: '_Tuple2', _0: _HenrikFricke$elm_board$Board_Board$init, _1: _elm_lang$core$Platform_Cmd$none},
+				view: _HenrikFricke$elm_board$Board_Board$view,
+				update: _HenrikFricke$elm_board$Board_Board$update,
+				subscriptions: _HenrikFricke$elm_board$Board_Board$subscriptions
 			})
 	};
 
