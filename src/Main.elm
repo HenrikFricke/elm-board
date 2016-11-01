@@ -3,9 +3,8 @@ import Board.Board as App
 
 main : Program Never
 main =
-  Html.App.program
-      { init = ( App.init, Cmd.none)
+  Html.App.beginnerProgram
+      { model = App.init
       , view = App.view
       , update = App.update
-      , subscriptions = App.subscriptions
       }

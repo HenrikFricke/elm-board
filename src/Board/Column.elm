@@ -1,4 +1,4 @@
-module Board.Column exposing (..)
+module Board.Column exposing (init, Msg(..), update, view, Model)
 
 import Html exposing (Html, div, p, text)
 import Html.Events exposing (onClick)
@@ -23,13 +23,11 @@ init label =
 type Msg
   = AddTicket String
 
-update : Msg -> Model -> ( Model, Cmd Msg )
+update : Msg -> Model -> Model
 update msg model =
   case msg of
     AddTicket label ->
-      ( { model | tickets = [Ticket.init "Test" "test"] ++ model.tickets }
-      , Cmd.none
-      )
+      { model | tickets = [Ticket.init "Test" "test"] ++ model.tickets }
 
 -- VIEW
 view : Model -> Html Msg
